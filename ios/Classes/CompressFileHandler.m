@@ -5,7 +5,7 @@
 #import "CompressFileHandler.h"
 #import "CompressHandler.h"
 #import "SYMetadata.h"
-#import <SDWebImageWebPCoder/SDWebImageWebPCoder.h>
+//#import <SDWebImageWebPCoder/SDWebImageWebPCoder.h>
 #import <SDWebImage/SDWebImage.h>
 
 @implementation CompressFileHandler {
@@ -33,14 +33,10 @@
     
     //  NSLog(@" nsdata length: %@", imageType);
     
-    SDImageWebPCoder *webPCoder = [SDImageWebPCoder sharedCoder];
-    [[SDImageCodersManager sharedManager] addCoder:webPCoder];
+    //SDImageWebPCoder *webPCoder = [SDImageWebPCoder sharedCoder];
+    //[[SDImageCodersManager sharedManager] addCoder:webPCoder];
     
-    if(imageType == @"image/webp") {
-    img = [[SDImageWebPCoder sharedCoder] decodedImageWithData:nsdata options:nil];
-    } else {
-        img = [UIImage imageWithData:nsdata];
-    }
+    img = [UIImage imageWithData:nsdata];
 
 
     NSData *data = [CompressHandler compressWithUIImage:img minWidth:minWidth minHeight:minHeight quality:quality rotate:rotate format:formatType];
@@ -76,14 +72,10 @@
     
     //  NSLog(@" nsdata length: %@", imageType);
     
-    SDImageWebPCoder *webPCoder = [SDImageWebPCoder sharedCoder];
-    [[SDImageCodersManager sharedManager] addCoder:webPCoder];
+    //SDImageWebPCoder *webPCoder = [SDImageWebPCoder sharedCoder];
+    //[[SDImageCodersManager sharedManager] addCoder:webPCoder];
     
-    if(imageType == @"image/webp") {
-    img = [[SDImageWebPCoder sharedCoder] decodedImageWithData:nsdata options:nil];
-    } else {
-        img = [UIImage imageWithData:nsdata];
-    }
+    img = [UIImage imageWithData:nsdata];
     
     NSData *data = [CompressHandler compressDataWithUIImage:img minWidth:minWidth minHeight:minHeight quality:quality rotate:rotate format:formatType];
 
